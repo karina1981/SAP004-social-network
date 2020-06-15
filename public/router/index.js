@@ -13,6 +13,7 @@ const init = () => {
 const renderPage = () => {
     pageContainer.innerHTML='';
     const page = validateHash(window.location.hash);
+    console.log("page",page,window.location.hash);
     pageContainer.appendChild(routes[page]);
 }
 
