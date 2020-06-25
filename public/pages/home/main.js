@@ -5,6 +5,7 @@ export const home = () => {
   const container = document.createElement('div');
 
   container.innerHTML = `
+  <div>teste</div>
     <form>
       <input id='name' type='text'>
       <button id='greeting-btn'>Dizer Oi</button>
