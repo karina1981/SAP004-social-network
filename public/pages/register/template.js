@@ -1,13 +1,14 @@
 const template = `
+<form enctype="multipart/form-data">
 <section class="container">
-  <form enctype="multipart/form-data">
+
     <section class="logo-login">
       <div class="logo">
         <img alt="logo" class="control-logo" src="imagens/logo.png"/>
       </div>
       <img alt="logo-name" class="name-logo" src="imagens/logo-name.png"/>
     </section>
-    <section class="container-register">
+         <section class="container-register">
       <h2 class="create-count">Criar conta</h2>
       <div class="content">
         <label for="email" class="email-register">email</label>
@@ -60,8 +61,10 @@ const template = `
       <span id="loginError" class="error"></span> 
       <a href="#" class="button-back">Voltar para o login</a>
     </section>
-  </form>
+
+    </section>
 </section>  
+</form>
 `;
 
 export default template;

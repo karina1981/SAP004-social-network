@@ -1,24 +1,7 @@
 import template from './template.js'
 
-const saverUserData = () => {
-  const name = document.getElementById('name');
-  const surname = document.getElementById('surname');
-  const status = document.getElementById('status');
-  const date = document.getElementById('date');
-  const user = {
-    name: name.value,
-    surname: surname.value,
-    status: status.value,
-    date: date.value,
-    photo: "",
-    user_uid: firebase.auth().currentUser.uid,
-  };
-  return firebase.firestore().collection('users').doc(firebase.auth().currentUser.uid).set(user);
-};
-
-
 // inicio do Envio de imagem
-let uploadFoto = () => {
+let uploadFoto = (data) => {
   let uid = firebase.auth().currentUser.uid;
   let inpFile = document.querySelector("input[name='photo']")
   let file = inpFile.files[0]
@@ -61,9 +44,9 @@ let uploadFoto = () => {
     function () {
       uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
         // console.log('File available at', downloadURL);
-        let user_uid = firebase.auth().currentUser.uid;
+        // let user_uid = firebase.auth().currentUser.uid;
 
-        firebase.firestore().collection('users').doc(user_uid).update({
+        firebase.firestore().collection('users').doc(data.id).update({
           photo : downloadURL
         });
         // firebase.firestore().collection('users').where('user_uid', '==', user_uid).get().then( ....
@@ -74,14 +57,26 @@ let uploadFoto = () => {
 }
 // fim do envio de imagem
 
+
+const saverUserData = () => {
+  const name = document.getElementById('name');
+
+  const user = {
+    name: name.value,
+    photo: "",
+    user_uid: firebase.auth().currentUser.uid,
+  };
+
+  return firebase.firestore().collection('users').add(user);
+};
+
 const create = () => {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
   const passwordConfirm = document.getElementById('password-confirm').value;
   const name = document.getElementById('name').value;
-  const surname = document.getElementById('surname').value;
 
-  if (name === '' || surname === '' || email === '' || password === '') {
+  if (name === '' || email === '' || password === '') {
     loginError.innerHTML = 'Preencha os campos em branco';
   } else if (password !== passwordConfirm) {
     loginError.innerHTML = 'Senha inválida';
@@ -90,10 +85,10 @@ const create = () => {
   } else if (password === passwordConfirm) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((data) => {
-        console.log("USER", data);
         let inserted = saverUserData();
+
         inserted.then((data) => {
-          uploadFoto();
+          uploadFoto(data);
           window.location.hash = '#feed';
         }).catch((error) => {
           alert(`Erro : ${error.code} `);
@@ -106,7 +101,7 @@ const create = () => {
   }
 };
 
-const render = () => {
+const render = (user) => {
   const container = document.createElement('div');
   container.innerHTML = template;
   return container;

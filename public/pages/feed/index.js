@@ -1,10 +1,10 @@
 import template from './template.js'
 import postTemplate from './postTemplate.js'
 
-const render = () => {
+const render = (user) => {
   const container = document.createElement('div');
 
-  container.innerHTML = template;
+  container.innerHTML = template(user);
 
   return container;
 }
@@ -13,7 +13,7 @@ const createPost = () => {
   const text = document.getElementById('postText').value
   const privatePost = document.getElementById('private').checked
   const userId = firebase.auth().currentUser.uid
-  const userName = firebase.auth().currentUser.displayName
+  const userName = document.getElementById('userName').innerHTML
   const post = {
     text,
     userId,
@@ -23,7 +23,9 @@ const createPost = () => {
     comments: [],
     whoLiked: [],
   }
-  firebase.firestore().collection('posts').add(post);
+  firebase.firestore().collection('posts').add(post).then(() => {
+    document.getElementById('postText').value = ''
+  });
 }
 
 const likePost = () => {
@@ -51,6 +53,7 @@ const commentPost = (id, text) => {
       const userId =  firebase.auth().currentUser.uid
       const comment = { text, userName, userId}
 
+
       comments.push(comment)
       firebase.firestore().collection('posts').doc(id).update({
         comments,
@@ -72,6 +75,8 @@ const addDeleteEvent = (post) => {
 
 const postEditEvent = (event) => {
   const id = event.target.dataset.id;
+
+  console.log("postEvent", id,event.target)
   const postContent = document.getElementById(`post-text-${id}`)
   postContent.contentEditable = true;
   postContent.addEventListener('keyup', function (e) {
@@ -104,14 +109,16 @@ const commentEditEvent = (event) => {
   const id = event.target.dataset.id;
   const index = event.target.dataset.index;
   const commentContent = document.getElementById(`comment-text-${id}-${index}`)
-  commentContent.contentEditable = true;
-  commentContent.addEventListener('keyup', function (e) {
-    const key = e.keyCode;
-    if(key==13){
-      editComment(id, commentContent.innerText, index)
-      commentContent.contentEditable = false;
-    }
-  })
+  if (commentContent) {
+    commentContent.contentEditable = true;
+    commentContent.addEventListener('keyup', function (e) {
+      const key = e.keyCode;
+      if(key==13){
+        editComment(id, commentContent.innerText, index)
+        commentContent.contentEditable = false;
+      }
+    })
+  }
 }
 
 const editComment = (id, text, index) => {
@@ -119,7 +126,6 @@ const editComment = (id, text, index) => {
     .then((post) => {
       const comments = post.data().comments;
       comments[index].text = text;
-      console.log(comments)
       firebase.firestore().collection('posts').doc(id).update({
         comments,
       });
@@ -138,26 +144,35 @@ const addCommentEditEvent = (post) => {
 
 const addLikeEvent = (post) => {
   const likeButton = document.getElementById(`like-${post.id}`)
-  likeButton.addEventListener('click', likePost)
+  if (likeButton) {
+    likeButton.addEventListener('click', likePost)
+  }
 }
 
 const showCommentButton = (post) => {
   const commentButton = document.getElementById(`comments-${post.id}`)
-  commentButton.addEventListener('click', () => {
-    const newCommentContainer = document.getElementById(`newCommentContainer-${post.id}`)
-    newCommentContainer.classList.toggle('show')
-  })
+
+  if (commentButton) {
+    commentButton.addEventListener('click', () => {
+      const newCommentContainer = document.getElementById(`newCommentContainer-${post.id}`)
+      newCommentContainer.classList.toggle('show')
+    })
+  }
 }
 
 const addComment = (post) => {
   const inputEnter = document.getElementById(`addComment-${post.id}`);
-  inputEnter.addEventListener('keyup', function (e) {
-    var key = e.keyCode;
-    if (key == 13) { // codigo da tecla enter
-      commentPost(post.id, inputEnter.value)
-    }
-  });
+
+  if (inputEnter) {
+    inputEnter.addEventListener('keyup', function (e) {
+      var key = e.keyCode;
+      if (key == 13) { // codigo da tecla enter
+        commentPost(post.id, inputEnter.value)
+      }
+    });
+  }
 }
+
 
 const deleteComment= (event) => {
   const id = event.target.dataset.id;
@@ -173,12 +188,14 @@ const deleteComment= (event) => {
 }
 
 const addCommentDeleteEvent = (post) => {
-  post.comments.forEach( (item, index) => {
-    const deleteButton = document.getElementById(`delete-comment-${post.id}-${index}`)
-    if (deleteButton) {
-      deleteButton.addEventListener('click', deleteComment)
-    }
-  })
+  if (post.comments) {
+    post.comments.forEach( (item, index) => {
+      const deleteButton = document.getElementById(`delete-comment-${post.id}-${index}`)
+      if (deleteButton) {
+        deleteButton.addEventListener('click', deleteComment)
+      }
+    })
+  }
 }
 
 
@@ -195,30 +212,52 @@ const addEvents = (post) => {
 const showFeed = () => {
   const currentUser = firebase.auth().currentUser.uid
   const timeline = document.getElementById('timeline')
-  firebase.firestore()
-    .collection("posts")
-    .orderBy('created', 'desc')
-    .onSnapshot(function (querySnapshot) {
-      var posts = [];
-      querySnapshot.forEach(function (doc) {
-        const post = doc.data()
-        post.id = doc.id
-        post.currentUser = currentUser
-        if (post.private && post.userId === currentUser) {
-          posts.push(post);
-        } else if (!post.private) {
-          posts.push(post)
-        }
-      });
 
-      const content = posts.map(postTemplate)
-      timeline.innerHTML = content.join('');
-      posts.forEach(addEvents)
-    });
+  firebase.firestore()
+  .collection("users")
+  .orderBy("user_uid", "asc")
+  .onSnapshot((docUsers) => {
+    let users = {}
+    docUsers.forEach((doc) => {
+      let user = doc.data()
+      users[user.user_uid] = user
+    })
+
+
+    firebase.firestore()
+      .collection("posts")
+      .orderBy('created', 'desc')
+      .onSnapshot(function (querySnapshot) {
+        var posts = [];
+        querySnapshot.forEach(function (doc) {
+          const post = doc.data()
+          post.id = doc.id
+          post.currentUser = currentUser
+          post.user = users[post.userId]
+  
+          let comments = []
+          post.comments.forEach((comment) => {
+            comments.push({user: users[comment.userId], ...comment})
+          });
+          post.comments = comments
+
+          if (post.private && post.userId === currentUser) {
+            posts.push(post);
+          } else if (!post.private) {
+            posts.push(post)
+          }
+        });
+  
+        const content = posts.map(postTemplate)
+        timeline.innerHTML = content.join('');
+        posts.forEach(addEvents)
+      });
+  })
+
+
 }
 
 const init = () => {
-  console.log('incializaou')
   const postButton = document.getElementById('createPost');
   postButton.addEventListener('click', createPost);
   showFeed();

@@ -24,15 +24,67 @@ const login = () => {
 }
 const loginGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(() => {
-    window.location = '#feed';
+  firebase.auth().signInWithPopup(provider).then((data) => {
+    new Promise((resolve, reject) => {
+      firebase.firestore().collection('users')
+      .where('user_uid', '==', data.user.uid).get()
+      .then(docs => {
+        if (docs.size == 0 && data.user.uid) {
+          const user = {
+            name: data.user.displayName,
+            surname:"",
+            status: "",
+            date: "",
+            photo: data.user.photoURL,
+            user_uid: data.user.uid,
+          };
+          firebase.firestore().collection('users').add(user)
+            .catch((error) => {
+              reject(error);
+            }).finally((data) => {
+              resolve(data);
+            });
+        } else {
+          resolve(docs.size);
+        }
+      });
+    }).finally((ret) => {
+      console.log("RET LOGIN GOOGLE...", ret);
+      window.location.hash = '#feed';
+    });
   });
 }
 
 const loginFacebook= () => {
   const provider = new firebase.auth.FacebookAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(() => {
-    window.location = '#feed';
+  firebase.auth().signInWithPopup(provider).then((data) => {
+    new Promise((resolve, reject) => {
+      firebase.firestore().collection('users')
+      .where('user_uid', '==', data.user.uid).get()
+      .then(docs => {
+        if (docs.size == 0 && data.user.uid) {
+          const user = {
+            name: data.user.displayName,
+            surname:"",
+            status: "",
+            date: "",
+            photo: data.user.photoURL,
+            user_uid: data.user.uid,
+          };
+          firebase.firestore().collection('users').add(user)
+            .catch((error) => {
+              reject(error);
+            }).finally((data) => {
+              resolve(data);
+            });
+        } else {
+          resolve(docs.size);
+        }
+      });
+    }).finally(() => {
+      console.log("RET LOGIN FACEBOOK...", ret);
+      window.location.hash = '#feed';
+    });
   });
 }
 

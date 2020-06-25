@@ -5,16 +5,32 @@ const pageContainer = document.getElementById('page-container');
 const validateHash = (hash) => hash === '' ? 'login' : hash.replace('#', '');
 
 const renderPage = () => {
-  pageContainer.innerHTML = '';
+  // console.log('RENDER PAGE....');
+  pageContainer.innerHTML='';
   const page = validateHash(window.location.hash);
+
   const route = routes[page];
-  if (page != 'login') {
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        pageContainer.appendChild(route.render());
-        route.init();
+  if (page != 'login' && page != 'register' && page != 'logout') {
+    firebase.auth().onAuthStateChanged(function (userAuth) {
+      if (userAuth) {
+        firebase.firestore().collection('users')
+          .where('user_uid', '==', userAuth.uid).get()
+          .then(docs => {
+            if (docs.size == 1) {
+              let doc = {};
+              docs.forEach(function(d) {
+                doc = d.data();
+              });
+              pageContainer.innerHTML='';
+              pageContainer.appendChild(route.render(doc));
+              route.init();
+            } else {
+              alert ('Logado', docs.size)
+            }
+          });
       } else {
-        document.location.hash = '#login';
+        console.log('erro redirect login');
+        window.location.hash = '#login';
       }
     });
   } else {

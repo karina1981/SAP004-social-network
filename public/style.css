@@ -1,1372 +1,1436 @@
-  * {
-    margin: 0;
-  }
-
-  body {
-    background-color: rgb(215,212,252);
-    font-family: 'Roboto', sans-serif;
-  } 
-
-  /*botão bonitinho*/
-
-  .private-button {
-    margin-left: 30px;
+* {
+	margin: 0;
 }
 
-.post-private{
-    font-size: 15px;
-    margin: 10px;
-    text-transform: uppercase;
-    color: rgb(56,180,228);
+body {
+	background-color: rgb(215, 212, 252);
+	font-family: "Roboto", sans-serif;
+}
+
+/*botão bonitinho*/
+
+.private-button {
+	margin-left: 30px;
+}
+
+.post-private {
+	font-size: 15px;
+	margin: 10px;
+	text-transform: uppercase;
+	color: rgb(56, 180, 228);
 }
 
 .switch__container {
-    display: flex;
-    align-items: center;
-    justify-content: left;
+	display: flex;
+	align-items: center;
+	justify-content: left;
 }
 
 .switch {
-    position: absolute;
-    margin-left: -9999px;
-    visibility: hidden;
-    margin-left: 60px;
+	position: absolute;
+	margin-left: -9999px;
+	visibility: hidden;
+	margin-left: 60px;
 }
 
 .switch + label {
-    display: block;
-    position: relative;
-    cursor: pointer;
-    outline: none;
-    user-select: none;
+	display: block;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	user-select: none;
 }
 
 .switch--shadow + label {
-    padding: 2px;
-    width: 40px;
-    height: 20px;
-    background-color: #dddddd;
-    border-radius: 60px;
+	padding: 2px;
+	width: 40px;
+	height: 20px;
+	background-color: #dddddd;
+	border-radius: 60px;
 }
 
 .switch--shadow + label:before,
 .switch--shadow + label:after {
-    display: block;
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    bottom: 1px;
-    content: '';
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	bottom: 1px;
+	content: "";
 }
 
 .switch--shadow + label:before {
-    right: 1px;
-    background-color: #f1f1f1;
-    border-radius: 60px;
-    transition: all 0.4s;
+	right: 1px;
+	background-color: #f1f1f1;
+	border-radius: 60px;
+	transition: all 0.4s;
 }
 
 .switch--shadow + label:after {
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    border-radius: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: all 0.4s;
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	transition: all 0.4s;
 }
 
 .switch--shadow:checked + label:before {
-    background-color: #8ce196;
+	background-color: #8ce196;
 }
 
 .switch--shadow:checked + label:after {
-    transform: translateX(20px);
+	transform: translateX(20px);
 }
+type-person {
+	font-size: 30%;
+}
+
 /*fim botão bonitinho*/
 
 @media screen and (min-width: 701px) {
-  .logo-login {
-    justify-content: center;
-    width: 40%;
-    height: 100%;
-    margin: 30px 0 0 0;
-    flex-wrap: wrap;
-    display: flex;
-  }
-
-  .logo {
-    display: flex;
-    justify-content: center;
-  }
-
-  .login {
-    flex-wrap: wrap;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    width: 70%;
-    margin: 30px 0 5px 0;
-  }
-
-  .container,
-  .img_photo{
-    justify-content: center;
-    margin:10px;
-    width:100%;
-  }
-
-  .container,
-  .create,
-  .img-social,
-  .email-input, 
-  .password-input,
-  .img_photo {
-    display: flex;
-  }
-
-  .img-social {
-    background-color: rgb(215,212,252);
-  }
-
-  .post,
-  .post-like {
-    background-color: rgba(255, 255, 255, 0.432);
-    margin: 6px;
-    border-radius: 10px;
-  }
-
-  .container-register{
-    background-color: rgba(255, 255, 255, 0.432);
-    margin: 50px 10px 0 10px;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    justify-content: center;
-    width: 40%;
-    }
-
-  .control-logo {
-    width: 70%;
-  }
-
-  .content,
-  .img_photo{
-    width: 80%;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .content-gender{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-left: 40px;
-  }
-
-  .man,
-  .female{
-    width: 50%;
-  }
-
-  .other{
-    width: 100%;
-  }
-
-  .enter-with,
-  .enter,
-  .email,
-  .password,
-  .img-social,
-  .content-gender {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .enter-login {
-    justify-content: center;
-    display: flex;
-  }
-
-  .login-facebook,
-  .login-google {
-    width: 13%;
-    margin: 10px;
-  }
-
-  .name-logo {
-    width: 70%;
-  }
-
-  .gender {
-    font-size: 12px;
-    padding: 5px;
-    color: rgb(138, 138, 143);
-    text-transform: uppercase;
-  }
-
-  .email-login,
-  .password-login,
-  #loginError,
-  .button-log-in,
-  .enter-with,
-  .email-register,
-  .password-register,
-  .password-confirm,
-  .name,
-  .surname,
-  .date,
-  .status,
-  .gender-class,
-  .user-perfil,
-  .photo-class {
-    font-size: 12px;
-    color: rgb(138, 138, 143);
-    text-transform: uppercase;
-    display: inline-block;
-    width: 100%;
-    margin: 10px;
-  }
-
-  .enter-with {
-    margin: 10px;
-    display: flex;
-  }
-
-  .email-input, 
-  .password-input,
-  .input {
-    width: 95%;
-    border-color: rgb(215,212,252);
-    background-color: rgb(243, 242, 242);
-    border-radius: 7px;
-    font-size: 20px;
-    color: rgb(159,158,168);
-    outline-color:rgb(56,180,228);
-    margin:5px;
-  }
-
-  .button-log-in,
-  .play,
-  .register-button {
-    justify-content: center;
-    color: rgb(255, 255, 255);
-    background-color: rgb(249,133,214);
-    border-color: none;
-    border-radius: 3px;
-    margin: 15px;
-    padding: 5px;
-    text-transform: uppercase;
-  }
-
-  .button-back{
-    text-transform: uppercase;
-    font-size: 12px;
-    color: rgb(56,180,228);
-    margin-bottom: 5px;
-  }
-
-  .button-log-in{
-    width: 200px;
-    height: 30px;
-  }
-
-  .email,
-  .password{
-    margin: 10px 60px 0 60px;
-  }
-
-  .create-count {
-    text-transform: uppercase;
-    color:rgb(249,133,214);
-    font-size: 18px;
-    margin-top: 30px;
-  }
-
-
-  /*feed*/
-
-  .feed-logo{
-    width: 60%;
-    margin-left: 110px ;
-  }
-
-  .menu-feed{
-    display: flex;
-    margin: 0 0 0 15px;
-  }
-
-  .feed-container{
-    width: 100%;
-  }
-
-  .header{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    background-color:rgb(249,133,214);
-  }
-
-  .menu-btn,
-  .menu-icon{
-    display: none;
-  }
-
-  ul {
-    padding:0px;
-    margin:0px;
-    list-style:none;
-  }
-
-  ul li { 
-    display: inline; 
-  }
-
-  ul li a {
-    padding: 2px 10px;
-    display: inline-block;
-    /* visual do link */
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-  }
-
-  ul li a:hover {
-    color: rgb(131, 130, 130);
-    border-bottom:3px solid rgb(56,180,228);
-    border-radius: 3px;
-  }
-
-  .foto-perfil {
-    border-radius: 50%;
-    width: 20%;
-    margin: 0 10px 10px 0;
-  }
-
-  .photo-name{
-    width: 30%;
-    flex-wrap: wrap;
-    display: flex;
-    background-color: rgba(255, 255, 255, 0.432);
-    margin: 30px 0 30px 50px;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-  }
-
-  .capa-feed {
-    width: 100%;
-    display: flex;
-    margin: 0 0 10px 0;
-  }
-
-  .name-perfil{
-    margin: 0 0 10px 20px;
-  }
-
-  .type-person{
-    color: rgb(56,180,228);
-    font-size: 8px;
-    text-transform: uppercase;
-  }
-
-  .img-photo{
-    width: 10%;
-    margin-left: 20px;
-  }
-
-  .post-feed,
-  .feed-post{
-    display: flex;
-  }
-
-  .post-feed{
-    background:rgb(208,205,237);
-    border-radius: 10px;   
-    width: 50%;
-    flex-wrap: wrap;
-    margin: 30px;
-  }
-
-  .post{
-    width: 90%;
-    margin: 10px;
-  }
-
-  .button-post {
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-  }
-
-  
-  /* css post template*/
-
-  .foto-feed{
-    width: 10%;
-  }
-
-  .post-text{
-    margin: 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 30px;
-    width: 100%;
-  }
-
-  .feed{
-    display: flex;
-  }
-
-  .template-feed {
-    justify-content: end;
-    width: 50%;
-    margin: 0 190px 30px 0;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.432);
-  }
-
-  .timeline-feed{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-  }
-
-  .feed-pessoal {
-    margin: 20px 20px 10px 10px;
-    align-items: center;
-    display: flex;
-  }
-
-  .foto-feed{
-    border-radius: 50%;
-    margin: 10px;
-  }
-
-  .itens-text{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .itens-post{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .delete{
-    width: 12%;
-  }
-
-  .comentar-feed,
-  .edit-post,
-  .compartilhar-feed,
-  .like-feed{
-    width: 15%;
-    height: 85%;
-    margin: 0 10px;
-  }
-
-  .edit-comment,
-  .delete-comment{
-    width: 8%;
-    margin: 0 10px;
-  }
-
-  .icons-left {
-    width: 50%;
-    display: flex;
-  }
-
-  .icons-right {
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .input-comment{
-    width: 80%;
-    border-radius: 5px;
-  }
-
-  .comment-container {
-      display: none;
-  }
-
-  .comment-container.show{
-      display: block;
-  }
-  
-  .foto-comment{
-    width: 10%;
-    border-radius: 50%;
-    margin: 5px 10px ;
-  }
-
-  .comment{
-    display: flex;
-    align-items: center;
-  }
-
-  .comments{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin: 5px 15px;
-  }
-  
-  .paragraph-comment {
-    width: 90%;
-    background-color: darkgray;
-    display: flex;
-    margin: 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 5px;
-  }
-
-  .text-comment{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .img-name{
-    display: flex;
-    align-items: center;
-  }
-
-  .img-name{
-    display: flex;
-    align-items: center;
-  } 
-  
+	.logo-login {
+		justify-content: center;
+		width: 40%;
+		height: 100%;
+		margin: 30px 0 0 0;
+		flex-wrap: wrap;
+		display: flex;
+	}
+
+	.control-logo {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	.logo {
+		display: flex;
+		justify-content: center;
+	}
+
+	.login {
+		flex-wrap: wrap;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		width: 70%;
+		margin: 30px 0 5px 0;
+	}
+
+	.container,
+	.img_photo {
+		justify-content: center;
+		margin: 10px;
+		width: 100%;
+	}
+
+	.container,
+	.create,
+	.img-social,
+	.email-input,
+	.password-input,
+	.img_photo {
+		display: flex;
+	}
+
+	.img-social {
+		background-color: rgb(215, 212, 252);
+	}
+
+	.post,
+	.post-like {
+		background-color: rgba(255, 255, 255, 0.432);
+		margin: 6px;
+		border-radius: 10px;
+	}
+
+	.container-register {
+		background-color: rgba(255, 255, 255, 0.432);
+		margin: 50px 10px 0 10px;
+		display: flex;
+		flex-wrap: wrap;
+		border-radius: 10px;
+		justify-content: center;
+		width: 40%;
+	}
+
+	.control-logo {
+		width: 90%;
+	}
+
+	.content,
+	.img_photo {
+		width: 80%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.content-gender {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-left: 40px;
+	}
+
+	.man,
+	.female {
+		width: 50%;
+	}
+
+	.other {
+		width: 100%;
+	}
+
+	.enter-with,
+	.enter,
+	.email,
+	.password,
+	.img-social,
+	.content-gender {
+		width: 100%;
+		justify-content: center;
+	}
+
+	.enter-login {
+		justify-content: center;
+		display: flex;
+	}
+
+	.login-facebook,
+	.login-google {
+		width: 13%;
+		margin: 10px;
+	}
+
+	.name-logo {
+		width: 80%;
+	}
+
+	.gender {
+		font-size: 12px;
+		padding: 5px;
+		color: rgb(138, 138, 143);
+		text-transform: uppercase;
+	}
+
+	.email-login,
+	.password-login,
+	#loginError,
+	.button-log-in,
+	.enter-with,
+	.email-register,
+	.password-register,
+	.password-confirm,
+	.name,
+	.surname,
+	.date,
+	.status,
+	.gender-class,
+	.user-perfil,
+	.photo-class {
+		font-size: 1em;
+		color: rgb(138, 138, 143);
+		text-transform: uppercase;
+		display: inline-block;
+		width: 100%;
+		margin: 10px;
+	}
+
+	.enter-with {
+		margin: 10px;
+		display: flex;
+	}
+
+	.email-input,
+	.password-input,
+	.input {
+		width: 95%;
+		border-color: rgb(215, 212, 252);
+		background-color: rgb(243, 242, 242);
+		border-radius: 7px;
+		font-size: 20px;
+		color: rgb(159, 158, 168);
+		outline-color: rgb(56, 180, 228);
+		margin: 5px;
+	}
+	.button-log-in,
+	.play,
+	.register-button {
+		justify-content: center;
+		color: rgb(255, 255, 255);
+		background-color: rgb(249, 133, 214);
+		border-color: none;
+		border-radius: 3px;
+		margin: 15px;
+		padding: 5px;
+		text-transform: uppercase;
+	}
+
+	.button-back {
+		text-transform: uppercase;
+		font-size: 12px;
+		color: rgb(56, 180, 228);
+		margin-bottom: 5px;
+	}
+
+	.button-log-in {
+		width: 200px;
+		height: 30px;
+	}
+
+	.email,
+	.password {
+		margin: 10px 60px 0 60px;
+	}
+
+	.create-count {
+		color: rgb(249, 133, 214);
+		font-size: 21px;
+		text-transform: uppercase;
+		width: 100%;
+		margin: 1em;
+		justify-content: center;
+		display: flex;
+	}
+
+	/*feed*/
+
+	.feed-logo {
+		width: 60%;
+		margin-left: 110px;
+	}
+
+	.menu-feed {
+		display: flex;
+		margin: 0 0 0 15px;
+	}
+
+	.feed-container {
+		width: 100%;
+	}
+
+	.header {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		background-color: rgb(249, 133, 214);
+	}
+
+	.menu-btn,
+	.menu-icon {
+		display: none;
+	}
+
+	ul {
+		padding: 0px;
+		margin: 0px;
+		list-style: none;
+	}
+
+	ul li {
+		display: inline;
+	}
+
+	ul li a {
+		padding: 2px 10px;
+		display: inline-block;
+		/* visual do link */
+		color: rgb(255, 255, 255);
+		text-decoration: none;
+	}
+
+	ul li a:hover {
+		color: rgb(131, 130, 130);
+		border-bottom: 3px solid rgb(56, 180, 228);
+		border-radius: 3px;
+	}
+
+	.foto-perfil {
+		border-radius: 50%;
+		width: 20%;
+		margin: 0 10px 10px 0;
+	}
+
+	.photo-name {
+		width: 30%;
+		flex-wrap: wrap;
+		display: flex;
+		background-color: rgba(255, 255, 255, 0.432);
+		margin: 30px 0 30px 50px;
+		border-radius: 5px;
+		justify-content: center;
+		align-items: center;
+		border-radius: 15px;
+	}
+
+	.capa-feed {
+		width: 100%;
+		display: flex;
+		margin: 0 0 10px 0;
+	}
+
+	.name-perfil {
+		margin: 0 0 10px 20px;
+	}
+
+	.type-person {
+		color: rgb(56, 180, 228);
+		font-size: 12px;
+		text-transform: uppercase;
+	}
+
+	.img-photo {
+		width: 10%;
+		margin-left: 20px;
+	}
+
+	.post-feed,
+	.feed-post {
+		display: flex;
+	}
+
+	.post-feed {
+		background: rgb(208, 205, 237);
+		border-radius: 10px;
+		width: 50%;
+		flex-wrap: wrap;
+		margin: 30px;
+	}
+
+	.post {
+		width: 90%;
+		margin: 10px;
+		width: 100%;
+		margin: 10px;
+		display: flex;
+		justify-content: center;
+	}
+
+	.button-post {
+		justify-content: space-between;
+		align-items: center;
+		display: flex;
+		width: 100%;
+	}
+
+	/* css post template*/
+
+	.foto-feed {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		margin: 10px;
+	}
+
+	.post-text {
+		margin: 10px;
+		border: 1px solid gray;
+		border-radius: 5px;
+		padding: 30px;
+		width: 100%;
+	}
+
+	.feed {
+		display: flex;
+	}
+
+	.template-feed {
+		justify-content: end;
+		width: 50%;
+		margin: 0 190px 30px 0;
+		display: flex;
+		flex-wrap: wrap;
+		border-radius: 10px;
+		background-color: rgba(255, 255, 255, 0.432);
+	}
+
+	.timeline-feed {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+	}
+
+	.feed-pessoal {
+		margin: 20px 20px 10px 10px;
+		align-items: center;
+		display: flex;
+		width: 100%;
+		color: rgb(159, 158, 168);
+		font-family: "Roboto", sans-serif;
+	}
+
+	.itens-text {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+	.itens-post {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	.delete {
+		width: 12%;
+	}
+
+	.comentar-feed,
+	.edit-post,
+	.compartilhar-feed,
+	.like-feed {
+		width: 15%;
+		height: 85%;
+		margin: 0 10px;
+	}
+
+	.edit-comment,
+	.delete-comment {
+		width: 8%;
+		margin: 0 10px;
+	}
+
+	.icons-left {
+		width: 50%;
+		display: flex;
+	}
+
+	.icons-right {
+		width: 50%;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.input-comment {
+		width: 80%;
+		border-radius: 5px;
+	}
+
+	.comment-container {
+		display: none;
+	}
+
+	.comment-container.show {
+		display: block;
+		width: 100%;
+	}
+
+	.foto-comment {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		margin: 5px 10px;
+	}
+
+	.comment {
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+	.comments {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		margin: 5px 15px;
+	}
+
+	.paragraph-comment {
+		width: 90%;
+		background-color: darkgray;
+		display: flex;
+		margin: 10px;
+		border: 1px solid gray;
+		border-radius: 5px;
+		padding: 5px;
+	}
+
+	.text-comment {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.img-name {
+		display: flex;
+		align-items: center;
+	}
+
+	.img-name {
+		display: flex;
+		align-items: center;
+	}
 }
 
-  /*MOBILE FIRST*/
+.icon-foto {
+	margin: 20px 0 0 10px;
+	width: 50px;
+}
+
+/*MOBILE FIRST*/
 
 @media screen and (max-width: 700px) {
-
-    .logo-login{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .logo{
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-
-    .container,
-    .container-register,
-    .img-social {
-        display: flex;
-        justify-content: center;
-        background-color: rgb(215,212,252);
-        flex-wrap: wrap;
-    }
-
-    .container-register,
-    .post-like {
-      background-color: rgba(255, 255, 255, 0.432);
-      margin: 10px;
-      border-radius: 10px;
-    }
-
-    .post {
-      background-color: rgba(255, 255, 255, 0.432);
-      margin: 45px 10px 0 20px;
-      border-radius: 10px;
-    }
-
-    .register {
-      width: 60%;
-    }
-
-    .login{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .email,
-    .password{
-      width: 80%;
-    }
-
-    .enter{
-      justify-content: center;
-      display: flex;
-      width: 100%;
-    }
-
-    .create {
-      display: flex;
-    }
-
-    .create-count {
-      color:rgb(249,133,214);
-      font-size: 15px;
-      text-transform: uppercase;
-    }
-
-    .email-login,
-    .password-login,
-    .enter-with,
-    h2,
-    .button-log-in,
-    .email-register,
-    .password-register,
-    .password-confirm,
-    .name,
-    .surname,
-    .nickname,
-    .date,
-    .state,
-    .status{
-      text-transform: uppercase;
-      margin: 40px 0 8px 0;
-      color: rgb(138, 138, 143);
-      font: 10px;
-      display: inline-block;
-    }
-
-    .content-gender{
-      display: flex;
-      flex-wrap: wrap;
-      margin: 40px 35px 0;
-      justify-content: space-evenly;
-    }
-
-    .gender-class{
-      width: 100%;
-      text-transform: uppercase;
-      color: rgb(138, 138, 143);
-      font: 10px;
-    }
-
-    .gender {
-      color: rgb(138, 138, 143);
-      text-transform: uppercase;
-      font-size: 13px;
-    }
-
-    .man,
-    .female {
-      width: 50%;
-      margin: 15px 0;
-    }
-
-    .other{
-      width:100%;
-      color: rgb(138, 138, 143);
-      text-transform: uppercase;
-    }
-      
-    .enter-with,
-    h3,
-    .user,
-    .create,
-    .link-create,
-    .button-back,
-    .compart,
-    .play,
-    #loginError,
-    .user-perfil,
-    .type-person,
-    .man,
-    .female{
-      text-transform: uppercase;
-      font-size: 12px;
-    }
-
-    .control-logo,
-    .content {
-      width: 80%;
-    }
-
-    .name-logo,
-    .feed-logo {
-      width: 60%;
-    }
-
-    .email-login,
-    .password-login {
-      font-size: 15px;
-      margin: 20px 0 8px 0;
-    }
-
-    .enter-with,
-    .create {
-      margin: 8px 0 10px 0;
-      color: rgb(138, 138, 143);
-      justify-content: center;
-    }
-
-    .link-create {
-      padding: 8px;
-    }
-
-    .senha {
-      display: inline-block;
-    }
-
-    .email-input, 
-    .password-input,
-    .input {
-      width: 100%;
-      border-color: rgb(215,212,252);
-      background-color: rgb(243, 242, 242);
-      border-radius: 3px;
-      font-size: 20px;
-      color: rgb(159,158,168);
-      outline-color:rgb(56,180,228);
-      height: 35%;
-    }
-
-    .input {
-      font-size: 18px;
-    }
-
-    .button-log-in,
-    .register-button,
-    .compart,
-    .play {
-      justify-content: center;
-      color: rgb(255, 255, 255);
-      background-color: rgb(249,133,214);
-      border-color: none;
-      border-radius: 3px;
-    }
-
-    .play {
-      color: rgb(255, 255, 255);
-      background-color: rgb(249,133,214);
-      border-radius: 3px;
-      margin: 10px;
-    }
-
-    .login-facebook,
-    .login-google {
-      width: 20%;
-      margin: 6px;
-    }
-
-    .calendar,
-    .like {
-      width: 15%;
-      margin: 5px;
-    }
-
-    .button-log-in,
-    .register-button {
-      width: 60%;
-      margin: 37px;
-      padding: 10px;
-      font-size: 18px;
-    }
-
-    .button{
-      width: 40%;
-      border: none;
-    }
-
-    #load {
-      display: none;
-    }
-
-    .gender-camp {
-      display: inline-block;
-    }
-
-    #loginError {
-      width: 100%;
-      color: rgb(56,180,228);
-      margin: 10px 0 0 65px;
-    }
-
-    .button-back,
-    h3,
-    .type-person {
-      color: rgb(56,180,228);
-    }
-
-    .compart {
-      width: 40%;
-      margin: 5px;
-      padding: 5px;
-      font-size: 15px;
-    }
-
-    .feed-post {
-      display: flex;
-      flex-wrap: wrap;
-      background-color: rgb(194, 192, 223);
-    }
-    
-    .feed{
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      margin: 10px;
-    }
-
-    .user-perfil,
-    .user-post {
-      text-transform: uppercase;
-      font-size: 18px;
-      color: rgb(122, 122, 126);
-      margin: 10px;
-    }
-
-    .name-logo,
-    .feed-logo {
-      width: 60%;
-    }
-
-    .email-login,
-    .password-login {
-      font-size: 15px;
-      margin: 20px 0 8px 0;
-    }
-
-    .enter-with,
-    .create {
-      margin: 8px 0 10px 0;
-      color: rgb(138, 138, 143);
-      justify-content: center;
-    }
-
-    .link-create {
-      padding: 8px;
-    }
-
-    .senha {
-      display: inline-block;
-    }
-
-    .email-input, 
-    .password-input,
-    .input {
-      width: 100%;
-      border-color: rgb(215,212,252);
-      background-color: rgb(243, 242, 242);
-      border-radius: 3px;
-      font-size: 20px;
-      color: rgb(159,158,168);
-      outline-color:rgb(56,180,228);
-      height: 35%;
-    }
-
-    .input {
-      font-size: 18px;
-    }
-
-    .button-log-in,
-    .register-button,
-    .compart,
-    .play {
-      justify-content: center;
-      color: rgb(255, 255, 255);
-      background-color: rgb(249,133,214);
-      border-color: none;
-      border-radius: 3px;
-    }
-
-    .play {
-      color: rgb(255, 255, 255);
-      background-color: rgb(249,133,214);
-      border-radius: 3px;
-      margin: 10px;
-    }
-
-    .login-facebook,
-    .login-google {
-      width: 20%;
-      margin: 6px;
-    }
-
-    .like {
-      width: 15%;
-      margin: 5px;
-    }
-
-    .button-log-in,
-    .register-button {
-      width: 60%;
-      margin: 37px;
-      padding: 10px;
-      font-size: 18px;
-    }
-
-    .button{
-      width: 40%;
-      border: none;
-    }
-
-    #load {
-      display: none;
-    }
-
-    .gender-camp {
-      display: inline-block;
-    }
-
-    #loginError {
-      width: 100%;
-      color: rgb(56,180,228);
-      margin: 10px 0 0 65px;
-    }
-
-    .button-back,
-    h3,
-    .type-person {
-      color: rgb(56,180,228);
-    }
-
-    .compart {
-      width: 40%;
-      margin: 5px;
-      padding: 5px;
-      font-size: 15px;
-    }
-
-    .feed-post {
-      display: flex;
-      flex-wrap: wrap;
-      background-color: rgb(194, 192, 223);
-    }
-    
-    .feed{
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      margin: 10px;
-    }
-
-    .user-perfil,
-    .user-post {
-      text-transform: uppercase;
-      font-size: 18px;
-      color: rgb(122, 122, 126);
-    }
-      
-    /*postTemplate*/
-
-    .itens-post{
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .icons-left,
-    .icons-right {
-      width: 50%;
-    }
-
-    .post-text {
-      margin: 20px;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid rgb(97, 96, 96);
-      background-color: gainsboro;
-    }
-
-    .template-feed {
-      display: flex;
-      margin: 0 5px 10px 5px;
-      flex-wrap: wrap;
-      background-color: rgba(255, 255, 255, 0.432);
-    }
-
-    .post-text {
-      margin: 20px;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid rgb(97, 96, 96);
-      background-color: gainsboro;
-    }
-
-    .itens-text {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .feed-pessoal {
-      width: 100%;
-      align-items: center;
-      display: flex;
-    }
-
-    .foto-feed {
-      margin: 20px 0 0 10px;
-      border-radius: 50%;
-      width: 20%;
-    }
-
-    .foto-feed {
-      margin: 20px 0 0 10px;
-      border-radius: 50%;
-      width: 20%;
-    }
-
-    .img-photo,
-    .like-feed,
-    .comentar-feed,
-    .calendar-feed,
-    .compartilhar-feed,
-    .edit-comment,
-    .edit-post {
-      width: 20%;
-      margin: 2px 0 1px 10px;
-    }
-
-    .img-photo{
-      width: 10%;
-      margin: 6px 0 10px 30px;
-    }
-
-    .edit-comment{
-      width: 10%;
-      margin: 2px 0 1px 10px;
-    }
-
-
-    .delete {
-      width: 20%;
-      margin: 6px 0 0;
-    }
-
-
-    /*FIM POST TEMPLATE */
-
-    .capa-feed {
-      display: none;
-    }
-
-    .perfil{
-      align-items: center;
-    }
-
-    .name-perfil,
-    .foto-perfil{
-      margin: 50px 0 0 10px;
-    }
-
-    .foto-perfil {
-      border-radius: 50%;
-      width: 25%;
-    }
-
-    .name-avatar{
-      width: 70%;
-      margin-left: 15px;
-    }
-
-    .post {
-      background-color: rgba(255, 255, 255, 0.432);
-      margin: 5px;
-      border-radius: 5px;
-      width: 80%;
-      height: 50%;
-    }
-
-    .button-post{
-      display: flex;
-      justify-content: space-between;
-      margin: 0 30px 0 0;
-    }
-
-    .photo-name{
-      flex-wrap: wrap;
-      display: flex;
-      margin: 5px;
-      border-radius: 5px;
-      align-items: center;
-    }
-
-    .post-feed{
-      height: 200px;
-      flex-wrap: wrap;
-      display: flex;
-      background-color: rgba(255, 255, 255, 0.432);
-      margin: 10px;
-      border-radius: 5px;
-      justify-content: center;
-    }
-
-  /* menu */
-
-
-  .menu-sandwich{
-    margin: 0 0 0 10px;
-  }
-
-  .menu-feed {
-    margin: 0 0 0 15px;
-  }
-
-  menu-item {
-    color:rgb(255, 255, 255);
-    background-color: rgb(249,133,214);;
-  }
-
-  .logo-feed {
-    margin: 8px 0 0 10px;
-  }
-
-  .header {
-    background-color: rgb(249,133,214);
-    box-shadow:1px 1px 4px 0 rgba(0,0,0,.1);
-    position: fixed;
-    width: 100%;
-    z-index:3;
-    display: flex;
-  }
-
-  .header ul{
-    margin:0;
-    padding:0;
-    list-style:none;
-    overflow:hidden;
-    background-color: #fff;
-  }
-
-  .header ul li a{
-    display: block;
-    padding: 20px;
-    text-decoration: none;
-  }
-
-  .menu-item:hover{
-    background-color:rgb(56,180,228);
-  }
-
-  .header .menu{
-    clear:both;
-    max-height: 0;
-    transition: max-height .2s ease-out;
-  }
-
-  .header .menu-icon{
-    padding: 28px 20px;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .header .menu-icon .nav-icon{
-    background: rgb(255, 255, 255);
-    display: block;
-    height:2px;
-    width: 18px;
-    position: relative;
-    transition: background .2s ease-out;
-  }
-
-  .header .menu-icon .nav-icon:before{
-    background: rgb(255, 255, 255);
-    content:"";
-    display:block;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    top: 5px;
-  }
-
-  .header .menu-icon .nav-icon::after{
-    background: rgb(255, 255, 255);
-    content:"";
-    display:block;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    top: -5px;
-  }
-
-  .header .menu-btn{
-    display: none;
-  }
-
-  .header .menu-btn:checked ~ .menu {
-    max-height: 240px;
-  }
-
-  .header .menu-btn:checked ~ .menu-icon .nav-icon{
-    background: transparent;
-  }
-
-  .header .menu-btn:checked ~ .menu-icon .nav-icon:before{
-    transform: rotate(-45deg);
-    top:0;
-  }
-
-  .header .menu-btn:checked ~ .menu-icon .nav-icon:after{
-    transform: rotate(45deg);
-    top:0;
-  }
-
-  /*comments*/
-  .comment-container {
-      display: none;
-  }
-
-  .comment-container.show{
-      display: block;
-  }
-
-  .foto-comment{
-      display: 50%;
-      width: 10%;
-      border-radius: 50%;
-      margin: 5px 10px ;
-  }
-
-  .comment{
-      display: flex;
-      align-items: center;
-  }
-
-  .input-comment{
-      border-radius: 5px;
-  }
-
-  .text-comment{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .paragraph-comment {
-    width: 90%;
-    background-color: darkgray;
-    display: flex;
-    margin: 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    padding: 5px;
-  }
-
-  .user-comment{
-    text-transform: uppercase;
-    font-size: 15px;
-    color: rgb(122, 122, 126);
-  }
-
-  .delete-comment {
-    width: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-  }
-
-  .comments{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin: 5px 15px;
-  }
-
+	.logo-login {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.logo {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	.container,
+	.container-register,
+	.img-social {
+		display: flex;
+		justify-content: center;
+		background-color: rgb(215, 212, 252);
+		flex-wrap: wrap;
+	}
+
+	.container-register,
+	.post-like {
+		background-color: rgba(255, 255, 255, 0.432);
+		margin: 10px;
+		border-radius: 10px;
+	}
+
+	.post {
+		background-color: rgba(255, 255, 255, 0.432);
+		margin: 45px 10px 0 20px;
+		border-radius: 10px;
+	}
+
+	.register {
+		width: 60%;
+	}
+
+	.login {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.email,
+	.password {
+		width: 80%;
+	}
+
+	.enter {
+		justify-content: center;
+		display: flex;
+		width: 100%;
+	}
+
+	.create {
+		display: flex;
+	}
+
+	.create-count {
+		color: rgb(249, 133, 214);
+		font-size: 21px;
+		text-transform: uppercase;
+		width: 100%;
+		margin: 1em;
+		justify-content: center;
+		display: flex;
+	}
+
+	.email-login,
+	.password-login,
+	.enter-with,
+	h2,
+	.button-log-in,
+	.email-register,
+	.password-register,
+	.password-confirm,
+	.name,
+	.surname,
+	.nickname,
+	.date,
+	.state,
+	.status {
+		text-transform: uppercase;
+		margin: 40px 0 8px 0;
+		color: rgb(138, 138, 143);
+		font: 10px;
+		display: inline-block;
+	}
+
+	.content-gender {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 40px 35px 0;
+		justify-content: space-evenly;
+	}
+
+	.gender-class {
+		width: 100%;
+		text-transform: uppercase;
+		color: rgb(138, 138, 143);
+		font: 10px;
+	}
+
+	.gender {
+		color: rgb(138, 138, 143);
+		text-transform: uppercase;
+		font-size: 13px;
+	}
+
+	.man,
+	.female {
+		width: 50%;
+		margin: 15px 0;
+	}
+
+	.other {
+		width: 100%;
+		color: rgb(138, 138, 143);
+		text-transform: uppercase;
+	}
+
+	.enter-with,
+	h3,
+	.user,
+	.create,
+	.link-create,
+	.button-back,
+	.compart,
+	.play,
+	#loginError,
+	.user-perfil,
+	.type-person,
+	.man,
+	.female {
+		text-transform: uppercase;
+		font-size: 12px;
+	}
+
+	.control-logo,
+	.content {
+		width: 80%;
+	}
+
+	.name-logo,
+	.feed-logo {
+		width: 60%;
+	}
+
+	.email-login,
+	.password-login {
+		font-size: 15px;
+		margin: 20px 0 8px 0;
+	}
+
+	.enter-with,
+	.create {
+		margin: 8px 0 10px 0;
+		color: rgb(138, 138, 143);
+		justify-content: center;
+	}
+
+	.link-create {
+		padding: 8px;
+	}
+
+	.senha {
+		display: inline-block;
+	}
+
+	.email-input,
+	.password-input,
+	.input {
+		width: 100%;
+		border-color: rgb(215, 212, 252);
+		background-color: rgb(243, 242, 242);
+		border-radius: 3px;
+		font-size: 20px;
+		color: rgb(159, 158, 168);
+		outline-color: rgb(56, 180, 228);
+		height: 35%;
+	}
+
+	.input {
+		font-size: 18px;
+	}
+
+	.button-log-in,
+	.register-button,
+	.compart,
+	.play {
+		justify-content: center;
+		color: rgb(255, 255, 255);
+		background-color: rgb(249, 133, 214);
+		border-color: none;
+		border-radius: 3px;
+	}
+
+	.play {
+		color: rgb(255, 255, 255);
+		background-color: rgb(249, 133, 214);
+		border-radius: 3px;
+		margin: 10px;
+		text-transform: uppercase;
+		margin: 10px;
+		margin: 24px 21px 1px 2px;
+	}
+
+	.login-facebook,
+	.login-google {
+		width: 20%;
+		margin: 6px;
+	}
+	.calendar,
+	.like {
+		width: 15%;
+		margin: 5px;
+	}
+
+	.button-log-in,
+	.register-button {
+		width: 60%;
+		margin: 37px;
+		padding: 10px;
+		font-size: 18px;
+	}
+
+	.button {
+		width: 40%;
+		border: none;
+	}
+
+	#load {
+		display: none;
+	}
+
+	.gender-camp {
+		display: inline-block;
+	}
+
+	#loginError {
+		width: 100%;
+		color: rgb(56, 180, 228);
+		margin: 10px 0 0 65px;
+	}
+
+	.button-back,
+	h3,
+	.type-person {
+		color: rgb(56, 180, 228);
+	}
+
+	.compart {
+		width: 40%;
+		margin: 5px;
+		padding: 5px;
+		font-size: 15px;
+	}
+
+	.feed-post {
+		display: flex;
+		flex-wrap: wrap;
+		background-color: rgb(194, 192, 223);
+	}
+
+	.feed {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin: 10px;
+	}
+
+	.user-perfil,
+	.user-post {
+		text-transform: uppercase;
+		font-size: 18px;
+		color: rgb(122, 122, 126);
+		margin: 10px;
+	}
+
+	.name-logo,
+	.feed-logo {
+		width: 80%;
+	}
+
+	.email-login,
+	.password-login {
+		font-size: 15px;
+		margin: 20px 0 8px 0;
+	}
+
+	.enter-with,
+	.create {
+		margin: 8px 0 10px 0;
+		color: rgb(138, 138, 143);
+		justify-content: center;
+	}
+
+	.link-create {
+		padding: 8px;
+	}
+
+	.senha {
+		display: inline-block;
+	}
+
+	.email-input,
+	.password-input,
+	.input {
+		width: 100%;
+		border-color: rgb(215, 212, 252);
+		background-color: rgb(243, 242, 242);
+		border-radius: 3px;
+		font-size: 20px;
+		color: rgb(159, 158, 168);
+		outline-color: rgb(56, 180, 228);
+		height: 35%;
+	}
+
+	.input {
+		font-size: 18px;
+	}
+
+	.button-log-in,
+	.register-button,
+	.compart,
+	.play {
+		justify-content: center;
+		color: rgb(255, 255, 255);
+		background-color: rgb(249, 133, 214);
+		border-color: none;
+		border-radius: 3px;
+	}
+
+	.play {
+		color: rgb(255, 255, 255);
+		background-color: rgb(249, 133, 214);
+		border-radius: 3px;
+		margin: 10px;
+	}
+
+	.login-facebook,
+	.login-google {
+		width: 20%;
+		margin: 6px;
+	}
+
+	.like {
+		width: 15%;
+		margin: 5px;
+	}
+
+	.button-log-in,
+	.register-button {
+		width: 60%;
+		margin: 37px;
+		padding: 10px;
+		font-size: 18px;
+	}
+
+	.button {
+		width: 40%;
+		border: none;
+	}
+
+	#load {
+		display: none;
+	}
+
+	.gender-camp {
+		display: inline-block;
+	}
+
+	#loginError {
+		width: 100%;
+		color: rgb(56, 180, 228);
+		margin: 10px 0 0 65px;
+	}
+
+	.button-back,
+	h3,
+	.type-person {
+		color: rgb(56, 180, 228);
+	}
+
+	.compart {
+		width: 40%;
+		margin: 5px;
+		padding: 5px;
+		font-size: 15px;
+	}
+
+	.feed-post {
+		display: flex;
+		flex-wrap: wrap;
+		background-color: rgb(194, 192, 223);
+	}
+
+	.feed {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin: 10px;
+	}
+
+	.user-perfil,
+	.user-post {
+		text-transform: uppercase;
+		font-size: 18px;
+		color: rgb(122, 122, 126);
+	}
+
+	/*postTemplate*/
+
+	.itens-post {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.icons-left,
+	.icons-right {
+		width: 50%;
+	}
+
+	.post-text {
+		margin: 20px;
+		padding: 10px;
+		border-radius: 5px;
+		border: 1px solid rgb(97, 96, 96);
+		background-color: gainsboro;
+	}
+
+	.template-feed {
+		display: flex;
+		margin: 0 5px 10px 5px;
+		flex-wrap: wrap;
+		background-color: rgba(255, 255, 255, 0.432);
+	}
+
+	.post-text {
+		margin: 20px;
+		padding: 10px;
+		border-radius: 5px;
+		border: 1px solid rgb(97, 96, 96);
+		background-color: gainsboro;
+	}
+
+	.itens-text {
+		width: 100%;
+		justify-content: center;
+	}
+
+	.feed-pessoal {
+		width: 100%;
+		align-items: center;
+		display: flex;
+	}
+
+	.foto-feed {
+		margin: 20px 0 0 10px;
+		border-radius: 50%;
+		width: 16%;
+		height: 127%;
+	}
+	.icon-foto {
+		margin: 20px 0 0 10px;
+		width: 40px;
+	}
+
+	.img-photo,
+	.like-feed,
+	.comentar-feed,
+	.calendar-feed,
+	.compartilhar-feed,
+	.edit-comment,
+	.edit-post {
+		width: 20%;
+		margin: 2px 0 1px 10px;
+	}
+
+	.img-photo {
+		width: 10%;
+		margin: 6px 0 10px 30px;
+	}
+
+	.edit-comment {
+		width: 10%;
+		margin: 2px 0 1px 10px;
+	}
+
+	.delete {
+		width: 20%;
+		margin: 6px 0 0;
+	}
+
+	/*FIM POST TEMPLATE */
+
+	.capa-feed {
+		display: none;
+	}
+
+	.perfil {
+		align-items: center;
+	}
+
+	.name-perfil,
+	.foto-perfil {
+		margin: 50px 0 0 10px;
+	}
+
+	.foto-perfil {
+		border-radius: 50%;
+		width: 25%;
+	}
+
+	.name-avatar {
+		width: 70%;
+		margin-left: 15px;
+	}
+
+	.post {
+		background-color: rgba(255, 255, 255, 0.432);
+		margin: 5px;
+		border-radius: 5px;
+		width: 80%;
+		height: 50%;
+	}
+
+	.button-post {
+		display: flex;
+		justify-content: space-between;
+		margin: 0 30px 0 0;
+		width: 100%;
+	}
+
+	.photo-name {
+		flex-wrap: wrap;
+		display: flex;
+		margin: 5px;
+		border-radius: 5px;
+		align-items: center;
+	}
+
+	.post-feed {
+		height: 200px;
+		flex-wrap: wrap;
+		display: flex;
+		background-color: rgba(255, 255, 255, 0.432);
+		margin: 10px;
+		border-radius: 5px;
+		justify-content: center;
+	}
+
+	/* menu */
+
+	.menu-sandwich {
+		margin: 0 0 0 10px;
+	}
+
+	.menu-feed {
+		margin: 0 0 0 15px;
+	}
+
+	menu-item {
+		color: rgb(255, 255, 255);
+		background-color: rgb(249, 133, 214);
+	}
+
+	.logo-feed {
+		margin: 8px 0 0 10px;
+	}
+
+	.header {
+		background-color: rgb(249, 133, 214);
+		box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+
+		width: 100%;
+		z-index: 3;
+		display: flex;
+	}
+
+	.header ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		overflow: hidden;
+		background-color: rgb(249, 133, 214);
+	}
+
+	.header ul li a {
+		display: block;
+		padding: 20px;
+		text-decoration: none;
+		color: rgb(255, 255, 255);
+		background-color: rgb(249, 133, 214);
+	}
+
+	.menu-item:hover {
+		background-color: rgb(56, 180, 228);
+	}
+
+	.header .menu {
+		clear: both;
+		max-height: 0;
+		transition: max-height 0.2s ease-out;
+	}
+
+	.header .menu-icon {
+		padding: 28px 20px;
+		position: relative;
+		cursor: pointer;
+	}
+
+	.header .menu-icon .nav-icon {
+		background: rgb(255, 255, 255);
+		display: block;
+		height: 2px;
+		width: 18px;
+		position: relative;
+		transition: background 0.2s ease-out;
+	}
+
+	.header .menu-icon .nav-icon:before {
+		background: rgb(255, 255, 255);
+		content: "";
+		display: block;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		transition: all 0.2s ease-out;
+		top: 5px;
+	}
+
+	.header .menu-icon .nav-icon::after {
+		background: rgb(255, 255, 255);
+		content: "";
+		display: block;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		transition: all 0.2s ease-out;
+		top: -5px;
+	}
+
+	.header .menu-btn {
+		display: none;
+	}
+
+	.header .menu-btn:checked ~ .menu {
+		max-height: 240px;
+	}
+
+	.header .menu-btn:checked ~ .menu-icon .nav-icon {
+		background: transparent;
+	}
+
+	.header .menu-btn:checked ~ .menu-icon .nav-icon:before {
+		transform: rotate(-45deg);
+		top: 0;
+	}
+
+	.header .menu-btn:checked ~ .menu-icon .nav-icon:after {
+		transform: rotate(45deg);
+		top: 0;
+	}
+
+	/*comments*/
+	.comment-container {
+		display: none;
+	}
+
+	.comment-container.show {
+		display: block;
+	}
+
+	.foto-comment {
+		display: 50%;
+		width: 10%;
+		border-radius: 50%;
+		margin: 5px 10px;
+	}
+
+	.comment {
+		display: flex;
+		align-items: center;
+	}
+
+	.input-comment {
+		border-radius: 5px;
+	}
+
+	.text-comment {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.paragraph-comment {
+		width: 90%;
+		background-color: darkgray;
+		display: flex;
+		margin: 10px;
+		border: 1px solid gray;
+		border-radius: 5px;
+		padding: 5px;
+	}
+
+	.user-comment {
+		text-transform: uppercase;
+		font-size: 15px;
+		color: rgb(122, 122, 126);
+	}
+	.delete-comment {
+		width: 10%;
+		display: flex;
+		align-items: center;
+		justify-content: end;
+	}
+
+	.comments {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		margin: 5px 15px;
+	}
 }
 
-  @media (min-width:48em){
-      .header li a {
-          padding:20px 30px;
-      }
-      .header .menu-icon{
-          display:none;
-      }
+@media (min-width: 48em) {
+	.header li a {
+		padding: 20px 30px;
+	}
+	.header .menu-icon {
+		display: none;
+	}
+}
 
-      }
+/* perfil */
 
-  /* perfil */
+.profile {
+	display: grid;
+	grid-template-rows: 60px 200px 1fr 1fr;
+	grid-template-columns: 12.5vh;
+	grid-template-areas:
+		"a1 a1 b1 b1 b1 b1 b1"
+		". b2 b2 b2 b2 b2 ."
+		". b3 b3 b3 b3 b3 ."
+		". . . . b4 b4 .";
+}
 
-  .profile {
-    display: grid;
-    grid-template-rows: 10vh 20vh 28vh 35vh;
-    grid-template-columns: 12.5vh;
-    grid-template-areas: "a1 a1 b1 b1 b1 c1 c1"
-                          ". b2 b2 b2 b2 b2 ."
-                          ". b3 b3 b3 b3 b3 ."
-                          ". . . . b4 b4 .";
-  }
+.a1 {
+	grid-area: a1;
+}
 
-  .a1 {
-    grid-area: a1;
-  }
+.b1 {
+	grid-area: b1;
+}
 
-  .b1 {
-    grid-area: b1;
-  }
+.logo-name {
+	display: block;
+	width: 35%;
+	height: 81%;
+	justify-content: center;
+}
 
+.b2 img {
+	margin: 6em 0 0 0;
+	border-radius: 50%;
+	height: 150px;
+	width: 150px;
+	display: block;
+}
+.b2 {
+	display: inline-grid;
+	grid-area: b2;
+	justify-content: center;
+	background: linear-gradient(
+			180deg,
+			rgba(115, 25, 157, 0.41) 0%,
+			rgba(237, 61, 167, 0.5) 100%
+		),
+		rgba(173, 56, 228, 0.5);
+	border-radius: 8px;
+	font-family: "Roboto", sans-serif;
+	color: rgb(138, 138, 143);
+	z-index: 0;
+}
 
-  .c1 {
-    grid-area: c1;
-  }
+.al {
+	display: ruby-text;
+}
 
-  .b2 {
-    display: inline-grid;
-    grid-area: b2;
-    justify-content: center;
-    background: linear-gradient(180deg, rgba(115, 25, 157, 0.41) 0%, rgba(237, 61, 167, 0.5) 100%), rgba(173, 56, 228, 0.5);
-    border-radius: 8px;
-    font-family: 'Roboto', sans-serif;
-    color: rgb(138, 138, 143);
-    z-index: 10;
-  }
+.al div {
+	grid-column: 1;
+}
 
-  .b2 img {
-    padding:6em 0 0 0;
-    height: 150px;
-    width: 150px;
-  }
+.btEdit {
+	height: 20px !important;
+	width: 20px !important;
+}
 
-  .b3 {
-    grid-area: b3;
-    background: #FAF8F8;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    color: rgb(138, 138, 143);
-    padding: 8em 0 0 0;
-  }
+.b3 {
+	grid-area: b3;
+	background: #faf8f8;
+	font-size: 16px;
+	font-family: "Roboto", sans-serif;
+	color: rgb(138, 138, 143);
+	padding: 8em 0 0 0;
+	height: auto;
+}
 
-  .b3 div{
-    display: flex;
-    padding: 0.4em;
-  }
+.b3 div {
+	display: flex;
+	align-items: center;
+	display: flex;
+	padding: 0.4em;
+}
 
-  .img3 {
-    width: 30px;
-  }
+.input-comment {
+	border-radius: 5px;
+}
 
-  .b4 {
-    grid-area: b4;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background:  rgba(250, 248, 248, 0.5);
-    border-radius: 0px 0px 8px 8px;
-  }
+.img3 {
+	width: 30px;
+}
 
-  .b4 > div {
-    display: flex;
-    justify-content: space-between;
-    margin: 1em;
-  }
-  .b4 img {
-    width: 50px;
-    height: 50px;
-  }
-  .textArea4 {
-    width: 100%;
-    height: 100px;
-    border-radius: 8px;
-  }
+.b4 {
+	grid-area: b4;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	background: rgba(250, 248, 248, 0.5);
+	border-radius: 0px 0px 8px 8px;
+}
+
+.b4 > div {
+	display: flex;
+	justify-content: space-between;
+	margin: 1em;
+}
+.b4 img {
+	width: 50px;
+	height: 50px;
+}
+.textArea4 {
+	width: 100%;
+	height: 100px;
+	border-radius: 8px;
+}
+
+/*mobile*/
+
+@media screen and (max-width: 700px) {
+	.profile {
+		grid-template-areas:
+			"a1 a1 b1 b1 b1 b1 b1"
+			"b2 b2 b2 b2 b2 b2 b2"
+			"b3 b3 b3 b3 b3 b3 b3"
+			"b4 b4 b4 b4 b4 b4 b4";
+	}
+}
